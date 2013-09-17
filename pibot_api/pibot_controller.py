@@ -3,6 +3,9 @@
 import json
 import RPi.GPIO as gpio
 
+FORWARD  =  1
+BACKWARD = -1
+
 def load_settings():
     """Loads the settings to know gpio ports and returns a dictionary"""
     settings_file = open('gpio_settings.cfg')
@@ -24,6 +27,38 @@ def power_on():
     gpio.setup(sett["BIN2"], gpio.OUT) # Set BIN2
     gpio.setup(sett["PWMB"], gpio.OUT) # Set PWMB
 
-def fname():
-    """docstring for fname"""
-    pass
+def power_off():
+    """Turns off the gpio pins"""
+    gpio.output(sett["AIN1"], gpio.LOW)
+    gpio.output(sett["AIN2"], gpio.LOW)
+    gpio.output(sett["PWMA"], gpio.LOW)
+    gpio.output(sett["BIN1"], gpio.LOW)
+    gpio.output(sett["BIN2"], gpio.LOW)
+    gpio.output(sett["PWMA"], gpio.LOW)
+    gpio.output(sett["STBY"], gpio.LOW)
+
+def motor_a(dir):
+    """Controls motor A"""
+    gpio.output(sett["STBY"], gpio.HIGH)
+
+    if dir == FORWARD:
+        gpio.output(sett["AIN1"], gpio.HIGH) # Set AIN1 \ direction of motor A
+        gpio.output(sett["AIN2"], gpio.LOW)  # Set AIN2 / 
+    elif dir == BACKWARD:
+        gpio.output(sett["AIN1"], gpio.LOW) # Set AIN1 \ direction of motor A
+        gpio.output(sett["AIN2"], gpio.HIGH)  # Set AIN2 / 
+        
+    gpio.output(sett["PWMA"], gpio.HIGH)
+
+def motor_b(dir):
+    """Controls motor B"""
+    gpio.output(sett["STBY"], gpio.HIGH)
+
+    if dir == FORWARD:
+        gpio.output(sett["BIN1"], gpio.HIGH) # Set AIN1 \ direction of motor A
+        gpio.output(sett["BIN2"], gpio.LOW)  # Set AIN2 / 
+    elif dir == BACKWARD:
+        gpio.output(sett["BIN1"], gpio.LOW) # Set AIN1 \ direction of motor A
+        gpio.output(sett["BIN2"], gpio.HIGH)  # Set AIN2 / 
+        
+    gpio.output(sett["PWMB"], gpio.HIGH)

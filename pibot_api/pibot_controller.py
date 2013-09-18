@@ -11,6 +11,8 @@ def load_settings():
     
     return settings
 
+sett = load_settings()
+
 def power_on():
     """Sets up the gpio pins"""
     # set-up pi to use pin numbers

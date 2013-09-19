@@ -39,29 +39,6 @@ def power_ctrl(circuit):
         gpio.output(sett["PWMB"], gpio.LOW)
         gpio.output(sett["STBY"], gpio.LOW)
 
-def power_on():
-    """Sets up the gpio pins"""
-    # set-up pi to use pin numbers
-    gpio.setmode(gpio.BOARD)
-    # set-up gpio pins
-    gpio.setup(sett["PWMA"], gpio.OUT) # Set PWMA
-    gpio.setup(sett["AIN2"], gpio.OUT) # Set AIN2
-    gpio.setup(sett["AIN1"], gpio.OUT) # Set AIN1
-    gpio.setup(sett["STBY"], gpio.OUT) # Set STBY
-    gpio.setup(sett["BIN1"], gpio.OUT) # Set BIN1
-    gpio.setup(sett["BIN2"], gpio.OUT) # Set BIN2
-    gpio.setup(sett["PWMB"], gpio.OUT) # Set PWMB
-
-def power_off():
-    """Turns off the gpio pins"""
-    gpio.output(sett["AIN1"], gpio.LOW)
-    gpio.output(sett["AIN2"], gpio.LOW)
-    gpio.output(sett["PWMA"], gpio.LOW)
-    gpio.output(sett["BIN1"], gpio.LOW)
-    gpio.output(sett["BIN2"], gpio.LOW)
-    gpio.output(sett["PWMB"], gpio.LOW)
-    gpio.output(sett["STBY"], gpio.LOW)
-
 def motor_ctrl(motor, dir):
     """Controls motors for PiBot"""
     gpio.output(sett["STBY"], gpio.HIGH)

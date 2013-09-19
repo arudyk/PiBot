@@ -28,7 +28,7 @@ def readKeys():
             try:
                 c = sys.stdin.read(1)
                 if c in control_keys.keys():
-                    print 'you pressed controlled key ', control_keys[c]
+                    print 'You pressed controlled key', control_keys[c]
             except IOError: pass
     finally:
         termios.tcsetattr(fd, termios.TCSAFLUSH, oldterm)

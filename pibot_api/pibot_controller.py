@@ -39,56 +39,56 @@ def power_off():
     gpio.output(sett["PWMB"], gpio.LOW)
     gpio.output(sett["STBY"], gpio.LOW)
 
-def motor_ctrl(motor, direction):
+def motor_ctrl(motor, dir):
     """Controls motors for PiBot"""
     gpio.output(sett["STBY"], gpio.HIGH)
 
     if motor == MOTOR_A:
 
-        if direction == FORWARD:
-            gpio.output(sett["AIN1"], gpio.HIGH) # Set AIN1 \ directionection of motor A
+        if dir == FORWARD:
+            gpio.output(sett["AIN1"], gpio.HIGH) # Set AIN1 \ direction of motor A
             gpio.output(sett["AIN2"], gpio.LOW)  # Set AIN2 / 
-        elif direction == BACKWARD:
-            gpio.output(sett["AIN1"], gpio.LOW) # Set AIN1 \ directionection of motor A
+        elif dir == BACKWARD:
+            gpio.output(sett["AIN1"], gpio.LOW) # Set AIN1 \ direction of motor A
             gpio.output(sett["AIN2"], gpio.HIGH)  # Set AIN2 / 
-        elif direction == STOP:
+        elif dir == STOP:
             gpio.output(sett["AIN1"], gpio.LOW)
             gpio.output(sett["AIN2"], gpio.LOW)
     elif motor == MOTOR_B: 
-        if direction == FORWARD:
-            gpio.output(sett["BIN1"], gpio.HIGH) # Set AIN1 \ directionection of motor A
+        if dir == FORWARD:
+            gpio.output(sett["BIN1"], gpio.HIGH) # Set AIN1 \ direction of motor A
             gpio.output(sett["BIN2"], gpio.LOW)  # Set AIN2 / 
-        elif direction == BACKWARD:
-            gpio.output(sett["BIN1"], gpio.LOW) # Set AIN1 \ directionection of motor A
+        elif dir == BACKWARD:
+            gpio.output(sett["BIN1"], gpio.LOW) # Set AIN1 \ direction of motor A
             gpio.output(sett["BIN2"], gpio.HIGH)  # Set AIN2 / 
-        elif direction == STOP:
+        elif dir == STOP:
             gpio.output(sett["BIN1"], gpio.LOW)
             gpio.output(sett["BIN2"], gpio.LOW)
 
-def motor_a(direction):
+def motor_a(dir):
     """Controls motor A"""
     gpio.output(sett["STBY"], gpio.HIGH)
 
-    if direction == FORWARD:
-        gpio.output(sett["AIN1"], gpio.HIGH) # Set AIN1 \ directionection of motor A
+    if dir == FORWARD:
+        gpio.output(sett["AIN1"], gpio.HIGH) # Set AIN1 \ direction of motor A
         gpio.output(sett["AIN2"], gpio.LOW)  # Set AIN2 / 
-    elif direction == BACKWARD:
-        gpio.output(sett["AIN1"], gpio.LOW) # Set AIN1 \ directionection of motor A
+    elif dir == BACKWARD:
+        gpio.output(sett["AIN1"], gpio.LOW) # Set AIN1 \ direction of motor A
         gpio.output(sett["AIN2"], gpio.HIGH)  # Set AIN2 / 
-    elif direction == STOP:
+    elif dir == STOP:
         gpio.output(sett["AIN1"], gpio.LOW)
         gpio.output(sett["AIN2"], gpio.LOW)
         
-def motor_b(direction):
+def motor_b(dir):
     """Controls motor B"""
     gpio.output(sett["STBY"], gpio.HIGH)
 
-    if direction == FORWARD:
-        gpio.output(sett["BIN1"], gpio.HIGH) # Set AIN1 \ directionection of motor A
+    if dir == FORWARD:
+        gpio.output(sett["BIN1"], gpio.HIGH) # Set AIN1 \ direction of motor A
         gpio.output(sett["BIN2"], gpio.LOW)  # Set AIN2 / 
-    elif direction == BACKWARD:
-        gpio.output(sett["BIN1"], gpio.LOW) # Set AIN1 \ directionection of motor A
+    elif dir == BACKWARD:
+        gpio.output(sett["BIN1"], gpio.LOW) # Set AIN1 \ direction of motor A
         gpio.output(sett["BIN2"], gpio.HIGH)  # Set AIN2 / 
-    elif direction == STOP:
+    elif dir == STOP:
         gpio.output(sett["BIN1"], gpio.LOW)
         gpio.output(sett["BIN2"], gpio.LOW)

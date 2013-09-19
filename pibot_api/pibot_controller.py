@@ -55,6 +55,7 @@ def motor_ctrl(motor, dir):
         elif dir == STOP:
             gpio.output(sett["AIN1"], gpio.LOW)
             gpio.output(sett["AIN2"], gpio.LOW)
+            gpio.output(sett["PWMA"], gpio.LOW)  # Set AIN2 / 
     elif motor == MOTOR_B: 
         if dir == FORWARD:
             gpio.output(sett["BIN1"], gpio.HIGH) # Set AIN1 \ direction of motor A
@@ -67,3 +68,4 @@ def motor_ctrl(motor, dir):
         elif dir == STOP:
             gpio.output(sett["BIN1"], gpio.LOW)
             gpio.output(sett["BIN2"], gpio.LOW)
+            gpio.output(sett["PWMB"], gpio.LOW)  # Set AIN2 / 

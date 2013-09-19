@@ -33,11 +33,13 @@ class PiBot(object):
     def slight_left(self):
         """Moves PiBot gradually to the left"""
         motor_ctrl(MOTOR_B, FORWARD)
+        motor_ctrl(MOTOR_A, STOP)
         self.status = "slightleft"
 
     def slight_right(self):
         """Moves PiBot gradually to the right"""
         motor_ctrl(MOTOR_A, FORWARD)
+        motor_ctrl(MOTOR_B, STOP)
         self.status = "slightright"
 
     def stop(self):

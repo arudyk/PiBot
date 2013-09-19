@@ -48,7 +48,7 @@ def motor_a(dir):
     elif dir == BACKWARD:
         gpio.output(sett["AIN1"], gpio.LOW) # Set AIN1 \ direction of motor A
         gpio.output(sett["AIN2"], gpio.HIGH)  # Set AIN2 / 
-        gpio.output(sett["PWMA"], gpio.HIGH)
+        #gpio.output(sett["PWMA"], gpio.HIGH)
     elif dir == STOP:
         gpio.output(sett["AIN1"], gpio.LOW)
         gpio.output(sett["AIN2"], gpio.LOW)

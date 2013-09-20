@@ -11,7 +11,9 @@ FORWARD  =  1
 STOP     =  0
 BACKWARD = -1
 
-init()
+def init():
+    sett = load_settings()
+    gpio.setwarnings(False)
 
 def load_settings():
     """Loads the settings to know gpio ports and returns a dictionary"""
@@ -19,10 +21,6 @@ def load_settings():
     settings = json.load(settings_file)
     
     return settings
-
-def init():
-    sett = load_settings()
-    gpio.setwarnings(False)
 
 def power_ctrl(circuit):
     if circuit == POWER_ON:
@@ -73,3 +71,5 @@ def motor_ctrl(motor, dir):
             gpio.output(sett["BIN1"], gpio.LOW)
             gpio.output(sett["BIN2"], gpio.LOW)
             gpio.output(sett["PWMB"], gpio.LOW)  # Set AIN2 / 
+
+init()

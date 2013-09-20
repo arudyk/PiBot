@@ -83,4 +83,3 @@ time.sleep(2)
 print '[!] Turning off GPIO pins.'
 power_ctrl(POWER_OFF)
 print '[+] Turned off GPIO pins.'
-time.sleep(2)

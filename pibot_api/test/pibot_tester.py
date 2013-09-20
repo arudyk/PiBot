@@ -45,6 +45,5 @@ time.sleep(2)
 
 #test stop()
 print '[!] Attempting to stop.'
-pibot.forward()
+pibot.stop()
 if pibot.status == 'stop': print '[+] Stopped.'
-time.sleep(2)

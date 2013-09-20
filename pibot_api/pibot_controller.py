@@ -11,6 +11,8 @@ FORWARD  =  1
 STOP     =  0
 BACKWARD = -1
 
+init()
+
 def load_settings():
     """Loads the settings to know gpio ports and returns a dictionary"""
     settings_file = open('/home/pi/PiBot/pibot_api/gpio_settings.cfg')
@@ -18,7 +20,9 @@ def load_settings():
     
     return settings
 
-sett = load_settings()
+def init():
+    sett = load_settings()
+    gpio.setwarnings(False)
 
 def power_ctrl(circuit):
     if circuit == POWER_ON:

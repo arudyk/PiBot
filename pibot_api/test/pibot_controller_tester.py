@@ -1,5 +1,7 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
+import sys
+sys.path.append("..")
 from pibot_controller import *
 from TestCase import *
 import time

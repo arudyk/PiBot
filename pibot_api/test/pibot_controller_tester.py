@@ -3,7 +3,6 @@
 import sys
 sys.path.append("..")
 from pibot_controller import *
-from TestCase import *
 import time
 
 print '[!] Turning on GPIO pins.'

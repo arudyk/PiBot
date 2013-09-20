@@ -45,3 +45,4 @@ class PiBot(object):
     def stop(self):
         """Stops the PiBot"""
         power_ctrl(POWER_OFF)
+        self.status = "stop"

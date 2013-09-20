@@ -19,7 +19,7 @@ def load_settings():
     return settings
 
 def init():
-    sett = load_settings()
+    global sett = load_settings()
     gpio.setwarnings(False)
 
 def power_ctrl(circuit):

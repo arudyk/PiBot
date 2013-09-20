@@ -35,6 +35,7 @@ def readKeys():
                 if key in control_keys.keys():
                     control_keys[key]()
                 elif key == 'x':
+                    pibot.stop()
                     sys.exit(0)
             except IOError: pass
     finally:

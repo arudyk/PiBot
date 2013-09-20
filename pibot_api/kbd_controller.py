@@ -16,6 +16,7 @@ control_keys = {'a' : pibot.left,
                 'e' : pibot.slight_right,
                 'f' : pibot.stop}    
 
+
 def readKeys():
     fd = sys.stdin.fileno()
 
@@ -33,6 +34,8 @@ def readKeys():
                 key = sys.stdin.read(1)
                 if key in control_keys.keys():
                     control_keys[key]()
+                elif key == 'x':
+                    sys.exit(0)
             except IOError: pass
     finally:
         termios.tcsetattr(fd, termios.TCSAFLUSH, oldterm)

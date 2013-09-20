@@ -18,10 +18,6 @@ def load_settings():
     
     return settings
 
-def init():
-    global sett = load_settings()
-    gpio.setwarnings(False)
-
 def power_ctrl(circuit):
     if circuit == POWER_ON:
         gpio.setmode(gpio.BOARD)
@@ -72,4 +68,5 @@ def motor_ctrl(motor, dir):
             gpio.output(sett["BIN2"], gpio.LOW)
             gpio.output(sett["PWMB"], gpio.LOW)  # Set AIN2 / 
 
-init()
+sett = load_settings()
+gpio.setwarnings(False)

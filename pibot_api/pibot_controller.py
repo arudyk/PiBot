@@ -13,7 +13,7 @@ BACKWARD = -1
 
 def load_settings():
     """Loads the settings to know gpio ports and returns a dictionary"""
-    settings_file = open('gpio_settings.cfg')
+    settings_file = open('/home/pi/PiBot/pibot_api/gpio_settings.cfg')
     settings = json.load(settings_file)
     
     return settings

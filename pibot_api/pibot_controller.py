@@ -1,12 +1,24 @@
 import json
 import RPi.GPIO as gpio
 
+"""
+Another script based class that contains the lowest level of abraction between
+PiBot and its controls.
+
+@author Tim Sizemore
+@author Andriy Rudyk
+@version 20 September 2013
+"""
+
+#Global varibles that correspond with engine controls.
 POWER_ON =  1
 POWER_OFF = 0
 
+#Global varibles that correspond with distinct engines.
 MOTOR_A  = 'a'
 MOTOR_B  = 'b'
 
+#Global varibles that correspond with PiBot's direction.
 FORWARD  =  1
 STOP     =  0
 BACKWARD = -1
@@ -18,7 +30,11 @@ def load_settings():
     
     return settings
 
+#Configures the settings from the gpio_settings.cfg file.
+sett = load_settings()
+
 def power_ctrl(circuit):
+    """Determines what engine needs to be turned and and executes it."""
     if circuit == POWER_ON:
         gpio.setmode(gpio.BOARD)
         gpio.setup(sett["PWMA"], gpio.OUT) 
@@ -67,6 +83,3 @@ def motor_ctrl(motor, dir):
             gpio.output(sett["BIN1"], gpio.LOW)
             gpio.output(sett["BIN2"], gpio.LOW)
             gpio.output(sett["PWMB"], gpio.LOW)  # Set AIN2 / 
-
-sett = load_settings()
-gpio.setwarnings(False)

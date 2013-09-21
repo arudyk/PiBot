@@ -7,7 +7,17 @@ import fcntl
 
 from pibot import *
 
+"""
+Uses keyboard input to control pibot functions.
+
+@author Tim Sizemore
+@author Andriy Rudyk
+@version 20 September 2013
+"""
+#Creates a new PiBot object.
 pibot = PiBot()
+
+#A dictionary mapping key presses to PiBot functions.
 control_keys = {'a' : pibot.left,
                 's' : pibot.reverse,
                 'd' : pibot.right,
@@ -17,6 +27,7 @@ control_keys = {'a' : pibot.left,
                 'f' : pibot.stop}    
 
 def readKeys():
+    """Waits for keyboard input and calls the method that is mapped to it."""
     fd = sys.stdin.fileno()
 
     oldterm = termios.tcgetattr(fd)

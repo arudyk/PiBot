@@ -1,8 +1,16 @@
 from pibot_controller import *
+"""
+A class that represents the PiBot controls in their abstracted form.
+
+@author Tim Sizemore
+@author Andriy Rudyk
+@version 20 September 2013
+"""
 
 class PiBot(object):
     """Class representing PiBot"""
     def __init__(self):
+        """The PiBot constructor."""
         self.status = None
         power_ctrl(POWER_ON)
 

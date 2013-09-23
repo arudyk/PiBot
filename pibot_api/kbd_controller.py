@@ -26,6 +26,19 @@ control_keys = {'a' : pibot.left,
                 'e' : pibot.slight_right,
                 'f' : pibot.stop}    
 
+def print_help():
+    """Print a help message"""
+    print "+---------+----------------+----------------------------+"
+    print "|   Key   |   Action       |   Description              |"
+    print "+---------+----------------+----------------------------+"
+    print "|   w     |   forward      | Moves PiBot forwards       |"
+    print "|   s     |   reverse      | Moves PiBot in reverse     |"
+    print "|   a     |   left         | Moves PiBot left           |"
+    print "|   d     |   right        | Moves PiBot right          |"
+    print "|   q     |   slight-left  | Moves PiBot slightly left  |"
+    print "|   e     |   slight-right | Moves PiBot slightly right |"
+    print "|   f     |   stop         | Stops PiBot (low voltage)  |"
+    print "+---------+----------------+----------------------------+"
 
 def readKeys():
     """Waits for keyboard input and calls the method that is mapped to it."""
@@ -53,4 +66,5 @@ def readKeys():
         termios.tcsetattr(fd, termios.TCSAFLUSH, oldterm)
         fcntl.fcntl(fd, fcntl.F_SETFL, oldflags)
 
+print_help()
 readKeys()

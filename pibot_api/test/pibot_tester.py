@@ -5,6 +5,15 @@ sys.path.append("..")
 from pibot import *
 import time
 
+"""
+Script that requires PiBot to be on and connected to test the API functionality.
+
+@author Tim Sizemore
+@author Andriy Rudyk
+@version 20 September 2013
+"""
+
+#Creates a new PiBot object.
 pibot = PiBot()
 
 #test forward()

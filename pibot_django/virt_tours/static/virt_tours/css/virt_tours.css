@@ -1,0 +1,20 @@
+.sitebody {
+    margin-top:75px;
+}
+
+.registration {
+    max-width: 400px;
+    margin-top: 50px;
+}
+
+.login-dialog {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+div.shadow {
+    -webkit-box-shadow:0 0 20px black;
+    -moz-box-shadow: 0 0 20px black; 
+    box-shadow:0 0 20px black;
+}

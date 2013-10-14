@@ -1,0 +1,50 @@
+{% extends "virt_tours/base_menu.html" %}
+{% load staticfiles %}
+{% block title %}Register - {% endblock %}
+{% block js %}
+<script>
+    function setBackground()                                                    
+    {                                                                           
+        document.body.style.background="#f3f3f3 url('{% static 'virt_tours/img/register_background.png' %}') no-repeat right top";
+    }
+</script>
+{% endblock %}
+{% block menulinks %}
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li class="active"><a href="#">Register</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+{% endblock %}
+{% block pagebody %}
+        <!-- Body -->
+        <div class="container sitebody">
+            <div class="well registration shadow">
+                <form role="form">
+                    <fieldset>
+                        <legend>Register for MoMove!</legend>
+                        <div class="form-group">
+                            <label for="fnamelabel">First Name</label>
+                            <input type="text" class="form-control" id="fnamefield" placeholder="First name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lnamelabel">Last Name</label>
+                            <input type="text" class="form-control" id="lnamefield" placeholder="Last name">
+                        </div>
+                        <div class="form-group">
+                            <label for="emaillabel">Email address</label>
+                            <input type="text" class="form-control" id="emailfield" placeholder="Email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordlabel">Password</label>
+                            <input type="password" class="form-control" id="passwordfield" placeholder="Password">
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-success">Register</button>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">                                         
+            $(function(){                                                       
+                setBackground();                                                
+            });                                                                 
+        </script>
+{% endblock %}

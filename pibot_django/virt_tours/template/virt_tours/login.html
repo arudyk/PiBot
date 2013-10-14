@@ -1,0 +1,42 @@
+{% extends "momove_website/base_menu.html" %}
+{% load staticfiles %}
+{% block title %}Login - {% endblock %}
+{% block js %}
+<script>
+    function setBackground()
+    {
+        document.body.style.background="#f3f3f3 url('{% static 'virt_tours/img/login_background.png' %}') no-repeat right top";
+    }
+</script>
+{% endblock %}
+{% block menulinks %}
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li class="active"><a href="#">Login</a></li>
+{% endblock %}
+{% block pagebody %}
+        <!-- Body -->
+        <div class="container sitebody">
+            <div class="well login-dialog shadow">
+                <form role="form" action="pibot_django/auth/" method="post">{% csrf_token %}
+                    <fieldset>
+                        <legend>Sign in</legend>                       
+                        <div class="form-group">                                    
+                            <label for="emaillabel">Username</label>           
+                            <input type="text" class="form-control" id="emailfield" name="username" placeholder="Email address">
+                        </div>                                                      
+                        <div class="form-group">                                    
+                            <label for="passwordlabel">Password</label>             
+                            <input type="password" class="form-control" id="passwordfield" name="password" placeholder="Password">
+                        </div>                                                      
+                    </fieldset>                                                     
+                    <button type="submit" class="btn btn-primary">Login</button> 
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function(){
+                setBackground();
+            });
+        </script>
+{% endblock %}

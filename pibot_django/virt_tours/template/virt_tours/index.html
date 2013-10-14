@@ -1,0 +1,14 @@
+{% extends "momove_website/base_menu.html" %}
+{% load staticfiles %}
+{% block title %}Home - {% endblock %}
+{% block menulinks %}
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+{% endblock %}
+{% block pagebody %}
+        <!-- Body -->
+        <div class="container sitebody">
+            Home page.
+        </div>
+{% endblock %}

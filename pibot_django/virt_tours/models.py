@@ -21,8 +21,8 @@ class Tour(models.Model):
     pibot = models.ForeignKey('PiBot')
 
     def __unicode__(self):
-        return self.user.first_name + ' ' + self.user.last_name + ' | Start: ' +
-    self.date + ' Deadline: ' + self.deadline + ' Using: '  + pibot
+        return (self.user.first_name + ' ' + self.user.last_name + ' | Start: ' +
+    self.date + ' Deadline: ' + self.deadline + ' Using: '  + pibot)
 
 class PiBot(models.Model):
     """

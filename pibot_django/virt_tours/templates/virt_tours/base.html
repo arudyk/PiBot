@@ -8,12 +8,13 @@
         <title>{% block title %}{% endblock %} PiBot</title>
         <!-- CSS style sheets -->
         <link rel="stylesheet" href="{% static 'virt_tours/css/bootstrap.min.css' %}" type="text/css" media="screen" charset="utf-8">
-        <link rel="stylesheet" href="{% static 'virt_tours/css/momovestyle.css' %}" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="{% static 'virt_tours/css/virt_tours.css' %}" type="text/css" media="screen" charset="utf-8">
         {% block css %}
         {% endblock %}
         <!-- Javascript libs -->
         <script type="text/javascript" charset="utf-8" src="{% static 'virt_tours/js/jquery-1.10.2.min.js' %}"></script>
         <script type="text/javascript" charset="utf-8" src="{% static 'virt_tours/js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" src="{% static 'virt_tours/js/virt_tours.js' %}"></script>
         {% block js %}
         {% endblock %}
     </head>

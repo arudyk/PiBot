@@ -1,14 +1,6 @@
-{% extends "momove_website/base_menu.html" %}
+{% extends "virt_tours/base_menu.html" %}
 {% load staticfiles %}
 {% block title %}Login - {% endblock %}
-{% block js %}
-<script>
-    function setBackground()
-    {
-        document.body.style.background="#f3f3f3 url('{% static 'virt_tours/img/login_background.png' %}') no-repeat right top";
-    }
-</script>
-{% endblock %}
 {% block menulinks %}
                     <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="{% url 'register' %}">Register</a></li>
@@ -34,9 +26,4 @@
                 </form>
             </div>
         </div>
-        <script type="text/javascript">
-            $(function(){
-                setBackground();
-            });
-        </script>
 {% endblock %}

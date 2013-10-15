@@ -11,19 +11,6 @@ class PiBotUser(models.Model):
     def __unicode__(self):
         return self.user.first_name + ' ' + self.user.last_name
 
-class Tour(models.Model):
-    """
-    Represents the current tour and the users associated with it.
-    """
-    date = models.DateTimeField()
-    user = models.ForeignKey('PiBotUser')
-    deadline = models.DateTimeField()
-    pibot = models.ForeignKey('PiBot')
-
-    def __unicode__(self):
-        return self.user.first_name + ' ' + self.user.last_name + ' | Start: ' +
-    self.date + ' Deadline: ' + self.deadline + ' Using: '  + pibot
-
 class PiBot(models.Model):
     """
     Represents a physical PiBot that can be user controlled.
@@ -35,5 +22,18 @@ class PiBot(models.Model):
 
     def __unicode__(self):
         return self.name + ' @ ' + self.location
+
+class Tour(models.Model):
+    """
+    Represents the current tour and the users associated with it.
+    """
+    date = models.DateTimeField()
+    user = models.ForeignKey('PiBotUser')
+    deadline = models.DateTimeField()
+    pibot = models.ForeignKey('PiBot')
+
+    def __unicode__(self):
+        return (self.user.first_name + ' ' + self.user.last_name + ' | Start: ' +
+    self.date + ' Deadline: ' + self.deadline + ' Using: '  + pibot)
 
        

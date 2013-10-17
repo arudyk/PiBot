@@ -41,7 +41,11 @@
                      {% block menulinks %}
                      {% endblock %}
                  </ul>
+                 {% if user %}
                  <p class="navbar-text pull-right">Logged in as <a href="/account">{{ user.nickname }}</a></p>
+                 {% else %}
+                 <p class="navbar-text pull-right">Logged in as <a href="/account">{{ user.nickname }}</a></p>
+                 {% endif %}
              </div>
          </div>
      

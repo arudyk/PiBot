@@ -41,10 +41,28 @@
                      {% block menulinks %}
                      {% endblock %}
                  </ul>
-                 <p class="navbar-text pull-right">Logged in as <a href="/account">{{ user.nickname }}</a></p>
+                 <ul class="nav navbar-nav navbar-right pull-right">
+                     <li class="dropdown">
+                     {% if user %}
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.nickname }}<b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                         <li><a href="#">Profile</a></li>
+                         <li><a href="#">My Tours</a></li>
+                         <li role="presentation" class="divider"></li>
+                         <li><a href="#">Sign Out</a></li>
+                     </ul>
+                     {% else %}
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guest<b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                         <li><a href="#">Register</a></li>
+                         <li><a href="#">Login</a></li>
+                     </ul>
+                     {% endif %}
+                     </li>
+                 </ul>
              </div>
          </div>
-     
+
      </div>
     {% block body %}
     {% endblock %}

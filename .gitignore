@@ -1,3 +1,4 @@
 virtenv/
+flask/
 settings.py
 *.pyc

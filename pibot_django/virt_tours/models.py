@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class PiBotUser(models.Model):
+class Pibotuser(models.Model):
     """
     Represents the users that are able to apply for PiBot access.
     """
@@ -11,7 +11,7 @@ class PiBotUser(models.Model):
     def __unicode__(self):
         return self.user.first_name + ' ' + self.user.last_name
 
-class PiBot(models.Model):
+class Pibot(models.Model):
     """
     Represents a physical PiBot that can be user controlled.
     """

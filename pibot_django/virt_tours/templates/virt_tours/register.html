@@ -10,7 +10,7 @@
         <!-- Body -->
         <div class="container sitebody">
             <div class="well registration shadow">
-                <form role="form">
+                <form action="/virt_tours/register" method="post">{% csrf_token %}
                     <fieldset>
                         <legend>Register for a PiBot account!</legend>
                         <div class="form-group">

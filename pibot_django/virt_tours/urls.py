@@ -1,17 +1,18 @@
-from django.conf.urls import patterns, url                                      
-                                                                                
-from virt_tours import views                                                
-                                                                                
-urlpatterns = patterns('',                                                      
-    url(r'^$', views.index, name='index'),                                      
-    url(r'^register/$', views.register, name='register'),                       
-    url(r'^login/$', views.login, name='login'),                                
-                                                                                
-    # User auth urls                                                            
-    url(r'^login/$', 'virt_tours.views.login'),                             
-    url(r'^auth/$', 'virt_tours.views.auth_view'),                          
-    url(r'^logout/$', 'virt_tours.views.logout'),                           
-    url(r'^loggedin/$', 'virt_tours.views.loggedin'),                       
-    url(r'^invalid/$', 'virt_tours.views.invalid_login'),                   
-)                                                                               
-                  
+from django.conf.urls import patterns, url
+
+from virt_tours import views
+
+urlpatterns = patterns('',
+    url(r'^$', views.index, name='index'),
+
+    # user auth urls
+    url(r'^login/$', views.login, name='login'),
+    url(r'^register/$', views.register, name='register'),
+    url(r'^register_success/$', views.register_success, name='register_success'),
+    
+    url(r'^auth/$', views.auth_view, name='auth_view'),
+    url(r'^logout/$', views.logout, name='logout'),
+    url(r'^loggedin/$', views.loggedin, name='loggedin'),
+    url(r'^invalid/$', views.invalid_login, name='invalid_login'),
+)
+

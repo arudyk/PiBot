@@ -18,4 +18,4 @@ def index():
     user = { 'nickname' : 'Andriy' } # fake user
     return render_template("index.html",
         title='Home',
-        user = user)
+        user=user)

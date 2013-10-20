@@ -1,4 +1,5 @@
 virtenv/
 flask/
+tmp/
 settings.py
 *.pyc

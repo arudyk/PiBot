@@ -3,9 +3,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <meta name="author" content="Andriy Rudyk & Tim Sizemore">
-        <meta name="description" content="virt tours">
-
-        {% if title %}
+        <meta name="description" content="virt tours"> {% if title %}
         <title>{{title}} - PiBot</title>
         {% else %}
         <title>Welcome to Pibot!</title>
@@ -46,7 +44,7 @@
                      {% if user %}
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.nickname }}<b class="caret"></b></a>
                      <ul class="dropdown-menu">
-                         <li><a href="#">Profile</a></li>
+                         <li><a href=""{{ url_for('user', nickname = g.user.nickname) }}>Profile</a></li>
                          <li><a href="#">My Tours</a></li>
                          <li role="presentation" class="divider"></li>
                          <li><a href="{{ url_for('logout') }}">Logout</a></li>

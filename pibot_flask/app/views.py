@@ -23,8 +23,8 @@ def index():
     user = g.user
 
     return render_template("index.html",
-		          title='Home',
-		          user=user)
+	                       title='Home',
+                           user=user)
 
 @app.before_request
 def before_request():
@@ -95,3 +95,18 @@ def after_login(resp):
     login_user(user, remember = remember_me)
 
     return redirect(request.args.get('next') or url_for('index'))
+
+@app.route('/user/<nickname>')
+@login_required
+def user(nickname):
+    """
+    User profile page.
+    """
+    user = User.query.filter_by(nickname = nickname).first()
+    
+    if user == None:
+        flash('User ' + nickname + ' not found.')
+        return redirect(url_for('index'))
+    
+    return render_template('user.html',
+                           user = user)

@@ -96,13 +96,13 @@ body {
   background-color: #ffffff;
 }
 
-div.shadow {
+.shadow {
     -webkit-box-shadow: 0 0 10px black;
     -moz-box-shadow: 0 0 10px black; 
     box-shadow: 0 0 10px black;
 }
 
-div.shadow2 {
+.shadow2 {
     -webkit-box-shadow: -5px 5px 2.5px black;
     -moz-box-shadow: -5px 5px 2.5px black; 
     box-shadow: -5px 5px 2.5px black;

@@ -1,5 +1,17 @@
 import os
+
+"""
+author: Andriy Rudyk
+        Tim Sizemore
+
+date:   21.10.2013
+
+Configurations for the aplication.
+"""
+
 basedir = os.path.abspath(os.path.dirname(__file__))
+
+DEBUG = True
 
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')

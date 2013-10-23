@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block menulinks %}
+<li><a href="/index">Home</a></li>
+<li><a href="/register">Register</a></li>
+<li class="active"><a href="#">Login</a></li>
+{% endblock %}
+
+{% block body %}
+<div class="container sitebody well">
+    <div class="profile_pic">
+        <img src="{{ user.avatar(128)}}">
+    </div>
+    <h1>User: {{user.nickname}}!</h1>
+    {% for error in form.errors.nickname %}
+    <br><span style="color: red;">[{{error}}]</span>
+    {% endfor %}
+    <h1>Edit Your Profile</h1>
+<form action="" method="post" name="edit">
+    {{form.hidden_tag()}}
+    <table>
+        <tr>
+            <td>Your nickname:</td>
+            <td>{{form.nickname(size = 24)}}</td>
+        </tr>
+        <tr>
+            <td>First Name:</td>
+            <td>{{form.first_name(size = 35)}}</td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td>{{form.last_name(size = 35)}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Save Changes"></td>
+        </tr>
+    </table>
+</form>
+</div>
+{% endblock %}

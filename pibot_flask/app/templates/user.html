@@ -8,6 +8,10 @@
 
 {% block body %}
 <div class="container sitebody">
+    <div class="profile_pic">
+        <img src="{{ user.avatar(128)}}">
+    </div>
     <h1>User: {{user.nickname}}!</h1>
+     {% if user.id == g.user.id %}<p><a href="{{url_for('edit')}}">Edit</a></p>{% endif %}
 </div>
 {% endblock %}

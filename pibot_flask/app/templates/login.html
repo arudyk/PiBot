@@ -34,7 +34,7 @@ function set_openid(openid, pr)
         <div class="control-group{% if form.errors.openid %} error{% endif %}">
             <label class="control-label" for="openid">Or enter your OpenID here:</label>
             <div class="controls">
-                {{ form.openid(size = 55, class = "span4") }}
+                {{ form.openid(size = 55, class = "form-control") }}
                 {% for error in form.errors.openid %}
                 <span class="help-inline">[{{error}}]</span><br>
                 {% endfor %}
@@ -55,8 +55,4 @@ function set_openid(openid, pr)
     </form>
 </div>
 </div>
-<script>
-    $('#openid').addClass('form-control');
-    $('#remember_me').addClass('checkbox');
-</script>
 {% endblock %}

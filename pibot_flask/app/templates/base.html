@@ -41,16 +41,16 @@
                  </ul>
                  <ul class="nav navbar-nav navbar-right pull-right">
                      <li class="dropdown">
-                     {% if user %}
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.nickname }}<b class="caret"></b></a>
+                     {% if g.user.is_authenticated() %}
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, {{ user.nickname }}<b class="caret"></b></a>
                      <ul class="dropdown-menu">
-                         <li><a href=""{{ url_for('user', nickname = g.user.nickname) }}>Profile</a></li>
+                         <li><a href="{{ url_for('user', nickname = g.user.nickname) }}">Profile</a></li>
                          <li><a href="#">My Tours</a></li>
                          <li role="presentation" class="divider"></li>
                          <li><a href="{{ url_for('logout') }}">Logout</a></li>
                      </ul>
                      {% else %}
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guest<b class="caret"></b></a>
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, Guest<b class="caret"></b></a>
                      <ul class="dropdown-menu">
                          <li><a href="#">Register</a></li>
                          <li><a href="#">Login</a></li>

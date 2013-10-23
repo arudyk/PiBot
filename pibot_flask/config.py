@@ -6,12 +6,21 @@ author: Andriy Rudyk
 
 date:   21.10.2013
 
-Configurations for the aplication.
+Configurations for the application.
 """
+
+# mail server settings
+MAIL_SERVER = 'localhost'
+MAIL_PORT = 25
+MAIL_USERNAME = 'arudyk.dev'
+MAIL_PASSWORD = 'mailpass1'
+
+# administrator list
+ADMINS = ['arudyk.dev@gmail.com']
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = True
+DEBUG = False
 
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')

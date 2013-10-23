@@ -1,11 +1,16 @@
 {% extends "base.html" %}
-
 {% block body %}
 <div class="container sitebody">
-  <div class="well shadow">
-    <div class="centered-item">
-      <img src="../static/img/error.png">
+    <div class="centered-item" style="
+        position: absolute;
+        height: 100px;
+        left: 30px;
+        top: 150px;
+        right: 30px;">
+        <h3 style="font-family: Consolas, monaco, monospace;">404 - Page Not Found!</h3>
     </div>
-  </div>
+    <div class="centered-item">
+        <img src="../static/img/error.png" style="max-width: 35%;">
+    </div>
 </div>
 {% endblock %}

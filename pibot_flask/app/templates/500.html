@@ -1,12 +1,16 @@
 {% extends "base.html" %}
-
 {% block body %}
 <div class="container sitebody">
-  <div class="well shadow">
-    <div class="centered-item">
-      <img src="../static/img/error.png">
-      <h3>Administration has been notified. Sorry for the inconvenience!</h3>
+    <div class="centered-item" style="
+        position: absolute;
+        height: 100px;
+        left: 30px;
+        top: 150px;
+        right: 30px;">
+        <h3 style="font-family: Consolas, monaco, monospace;">500 - Administration has been notified. Sorry for the inconvenience!</h3>
+        <div class="centered-item">
+            <img src="../static/img/error.png" style="max-width: 35%;">
+        </div>
     </div>
-  </div>
 </div>
 {% endblock %}

@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block body %}
 {% include 'flash.html' %}
-<div class="container sitebody">
-    <div class="profile_pic">
-        <img src="{{ user.avatar(128)}}">
+<div class="container sitebody well shadow">
+    <div class="profile_pic" style="float:left;">
+        <img src="{{ user.avatar(85)}}">
+        <h1>User: {{user.nickname}}!</h1>
     </div>
-    <h1>User: {{user.nickname}}!</h1>
      {% if user.id == g.user.id %}<p><a href="{{url_for('edit')}}">Edit</a></p>{% endif %}
 </div>
 {% endblock %}

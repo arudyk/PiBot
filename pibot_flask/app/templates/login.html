@@ -15,6 +15,7 @@ function set_openid(openid, pr)
     form.elements['openid'].value = openid;
 }
 </script>
+{% include 'flash.html' %}
 <div class="well login-dialog shadow">
     <h3>Please Sign In</h3>
     <form class="form" action="" method="post" name="login">

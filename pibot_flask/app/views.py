@@ -16,12 +16,18 @@ pages.
 
 @app.errorhandler(404)
 def internal_error(error):
-    return render_template('404.html'), 404
+    user = g.user
+    return render_template('404.html',
+                           title="404 Error",
+                           user=user), 404
 
 @app.errorhandler(500)
 def internal_error(error):
+    user = g.user
     db.session.rollback()
-    return render_template('500.html'), 500
+    return render_template('500.html',
+                           title="500 Error",
+                           user=user), 500
 
 @app.route('/')
 @app.route('/index')

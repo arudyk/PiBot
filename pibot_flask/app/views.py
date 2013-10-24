@@ -131,6 +131,7 @@ def user(nickname):
 @login_required
 def edit():
     form = EditForm(g.user.nickname)
+    print g.user.nickname
     if form.validate_on_submit():
         g.user.nickname = form.nickname.data
         g.user.first_name = form.first_name.data
@@ -144,4 +145,5 @@ def edit():
         form.first_name = g.user.first_name
         form.last_name = g.user.last_name
     return render_template('edit.html',
-                           form = form)
+                           form = form,
+                           user=g.user)

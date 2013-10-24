@@ -51,14 +51,12 @@
     box-shadow: 0 0 10px black;
 }
 
-.shadow2 {
-    -webkit-box-shadow: -5px 5px 2.5px black;
-    -moz-box-shadow: -5px 5px 2.5px black;
-    box-shadow: -5px 5px 2.5px black;
-}
-
 .centered-item {
     text-align: center;
     img {
     margin: 0 auto;
+}
+
+.edit-btn {
+    max-width: 105px;
 }

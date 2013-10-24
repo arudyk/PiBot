@@ -13,6 +13,9 @@
 
 .carousel {
     margin-top: 40px;
+    margin-left: 255px;
+    width: 533px;
+    height: 400px;
 }
 
 .my-carousel-indicators {

@@ -131,6 +131,7 @@ def user(nickname):
 @login_required
 def edit():
     form = EditForm(g.user.nickname)
+    user = g.user
     print g.user.nickname
     if form.validate_on_submit():
         g.user.nickname = form.nickname.data
@@ -140,10 +141,10 @@ def edit():
         db.session.commit()
         flash('Your changes have been saved.')
         return redirect(url_for('edit'))
-    else:
+    elif request.method != "POST":
         form.nickname.data = g.user.nickname
-        form.first_name = g.user.first_name
-        form.last_name = g.user.last_name
+        form.first_name.data = g.user.first_name
+        form.last_name.data = g.user.last_name
     return render_template('edit.html',
-                           form = form,
-                           user=g.user)
+                           user = user,
+                           form = form)

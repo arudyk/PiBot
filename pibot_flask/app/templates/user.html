@@ -3,13 +3,28 @@
 {% include 'flash.html' %}
 <div class="container sitebody well shadow">
     <div class="controls" id="edit_button">
+        {% if user.id == g.user.id %}
         <input id="edit-btn" class="btn btn-primary pull-right" onclick="location.href='{{url_for('edit')}}';" value="Edit Profile">
+        {% endif %}
     </div>
     <div class="profile_pic" style="float:left;">
         <img src="{{ user.avatar(85)}}">
-        <h2>{{user.nickname}}</h2>
-        {% if user.id == g.user.id %}
-        {% endif %}
+        <br>
+        <br>
+        <table class="table">
+        <tr>
+            <td>Email:</td>
+            <td>{{user.email}}</td>
+        </tr>
+        <tr>
+            <td>First Name:</td>
+            <td>{{user.first_name}}</td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td>{{user.last_name}}</td>
+        </tr>
+        </table>
     </div>
 </div>
 {% endblock %}

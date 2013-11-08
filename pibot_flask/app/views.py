@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from app import app, db, lm, oid
-from forms import LoginForm, EditForm
+from forms import LoginForm, EditForm, TourRegisterForm
 from models import User, ROLE_USER, ROLE_ADMIN
 
 """
@@ -147,3 +147,28 @@ def edit():
     return render_template('edit.html',
                            form = form,
                            user=g.user)
+
+@app.route('/gallery')
+def gallery():
+    """
+    A picture gallery.
+    """
+    user = g.user
+
+    return render_template("gallery.html",
+	                       title='Gallery',
+                           user=user)
+
+@app.route('/tour_register', methods = ['GET', 'POST'])
+@login_required
+def tour_register():
+    form  = TourRegisterForm(g.user.nickname)
+    if form.validate_on_submit():
+        mybot = db.session.query.filter_by(name = form.pibot.data)[0]
+        mytour = Tour(date = CONVERT_STR, deadline = CONVERT_STR, user_id = g.user.id, mybot.id)
+        db.session.add(mytour)
+        flash('You have registered for a tour')
+        return redirect(url_for('index'))
+    return render_template('tour_register.html',
+                           form = form,
+                           user = g.user)

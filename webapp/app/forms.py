@@ -1,6 +1,8 @@
 from flask.ext.wtf import Form
 from wtforms import TextField, BooleanField
 from wtforms.validators import Required
+from app import db
+from models import Pibot
 
 """
 author: Andriy Rudyk
@@ -40,3 +42,13 @@ class EditForm(Form):
             self.nickname.errors.append('This nickname is already in use. Please choose another one.')
             return False
         return True
+
+class TourRegisterForm(Form):
+    """
+    Form used to register for a tour.
+    """
+    pibots = db.session.query(Pibot).all()
+    date = TextField('date', validators = [Required()])
+    time = TextField('duration', validators = [Required()])
+    pibot = SelectField(u'Choose PiBot', choices=pibots)
+

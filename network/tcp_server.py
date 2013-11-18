@@ -44,7 +44,10 @@ def handle(conn, address, key, cert):
             # 1.) Check if data contains server key.
             # 2.) If so, listen for actions.
             # 3.) Run appropriate pibot methods.
-            conn.sendall(data)
+            serverKey = open(key, 'r').read()
+            if data == serverKey:
+                # authenticate
+                conn.sendall(data)
             logger.debug("Sent data")
     except:
         logger.exception("Problem handling request")

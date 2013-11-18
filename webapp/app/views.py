@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from app import app, db, lm, oid
-from forms import LoginForm, EditForm, TourRegisterForm
+from forms import LoginForm, EditForm
 from models import User, ROLE_USER, ROLE_ADMIN
 
 """
@@ -146,7 +146,6 @@ def edit():
         form.first_name.data = g.user.first_name
         form.last_name.data = g.user.last_name
     return render_template('edit.html',
-<<<<<<< HEAD
                            form = form,
                            user=g.user)
 
@@ -160,7 +159,7 @@ def gallery():
     return render_template("gallery.html",
 	                       title='Gallery',
                            user=user)
-
+"""
 @app.route('/tour_register', methods = ['GET', 'POST'])
 @login_required
 def tour_register():
@@ -174,7 +173,6 @@ def tour_register():
     return render_template('tour_register.html',
                            form = form,
                            user = g.user)
-=======
                            user = user,
                            form = form)
->>>>>>> a226f667216f0b43994486eb50f13811d2e62ea9
+"""

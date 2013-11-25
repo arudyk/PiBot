@@ -168,14 +168,11 @@ def tour_register():
     form  = TourRegisterForm()
     user = g.user
     if form.validate_on_submit():
-        mybot = models.Pibot.query.filter_by(location = form.pibot.data)
+        mybot = models.Pibot.query.filter_by(name = form.pibot.data)
 
-        u = models.Tour(date = form.start.data, deadline = form.finish.data, user_id = user, pibot_id = mybot)
-        print mytour
+        u = models.Tour(start = form.start.data, finish = form.finish.data, user_id = user.id, pibot_id = mybot[0].id)
         db.session.add(u)
-        print 'after add'
         db.session.commit()
-        print 'after commit'
 
         flash('You have registered for a tour starting on: ' + str(form.start.data) + 
             ' ending: ' + str(form.finish.data) + ' using PiBot named: ' + str(form.pibot.data))

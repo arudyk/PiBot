@@ -77,10 +77,10 @@ class Tour(db.Model):
     Represents a tour when a user takes control of a PiBot.
     """
     id = db.Column(db.Integer, primary_key = True)
-    date = db.Column(db.DateTime)
-    deadline = db.Column(db.DateTime)
+    start = db.Column(db.DateTime)
+    finish = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     pibot_id = db.Column(db.Integer, db.ForeignKey('pibot.id'))
 
     def __repr__(self):
-        return '<Tour Time %r>' % (self.date)
+        return '<Tour Time %r>' % (self.start)

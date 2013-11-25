@@ -1,8 +1,10 @@
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
-from app import app, db, lm, oid
-from forms import LoginForm, EditForm
+from app import app, db, lm, oid, models
+from forms import LoginForm, EditForm, TourRegisterForm
 from models import User, ROLE_USER, ROLE_ADMIN
+
+from datetime import datetime
 
 """
 author: Andriy Rudyk
@@ -159,20 +161,26 @@ def gallery():
     return render_template("gallery.html",
 	                       title='Gallery',
                            user=user)
-"""
+
 @app.route('/tour_register', methods = ['GET', 'POST'])
 @login_required
 def tour_register():
-    form  = TourRegisterForm(g.user.nickname)
+    form  = TourRegisterForm()
+    user = g.user
     if form.validate_on_submit():
-        mybot = db.session.query.filter_by(name = form.pibot.data)[0]
-        mytour = Tour(date = CONVERT_STR, deadline = CONVERT_STR, user_id = g.user.id, mybot.id)
-        db.session.add(mytour)
-        flash('You have registered for a tour')
+        mybot = models.Pibot.query.filter_by(location = form.pibot.data)
+
+        u = models.Tour(date = form.start.data, deadline = form.finish.data, user_id = user, pibot_id = mybot)
+        print mytour
+        db.session.add(u)
+        print 'after add'
+        db.session.commit()
+        print 'after commit'
+
+        flash('You have registered for a tour starting on: ' + str(form.start.data) + 
+            ' ending: ' + str(form.finish.data) + ' using PiBot named: ' + str(form.pibot.data))
+        
         return redirect(url_for('index'))
     return render_template('tour_register.html',
                            form = form,
-                           user = g.user)
-                           user = user,
-                           form = form)
-"""
+                           user = user)

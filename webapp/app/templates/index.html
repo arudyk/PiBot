@@ -1,62 +1,15 @@
 {% extends "base.html" %}
 
 {% block body %}
-{% include 'flash.html' %}
 <div class="container sitebody">
   <div class="well shadow">
-    <h2> Welcome to PiBot! </h2>
-    <div id="carousel-example-generic" class="carousel slide">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-      </ol>
+    {% include 'flash.html' %}
+    <h1> Welcome to PiBot! </h1>
+    <hr>
 
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active">
-          <div class="centered-item">
-            <img src="../static/img/pibot1.jpg" alt="...">
-            <div class="carousel-caption">
-              <a class="btn btn-default" href="gallery.html";">Gallery</a>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="centered-item">
-            <img src="../static/img/pibot2.jpg" alt="...">
-            <div class="carousel-caption">
-              <h3> This is some sample text. </h3>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="centered-item">
-            <img src="../static/img/pibot3.jpg" alt="...">
-            <div class="carousel-caption">
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="centered-item">
-            <img src="../static/img/pibot4.jpg" alt="...">
-            <div class="carousel-caption">
-            </div>
-          </div>
-        </div>
-      </div>
+    <h3>What's PiBot?</h3>
+    <img src="../static/img/pibot_front_page.jpg" height="40%" width="40%" style="float:right; padding:10px;">
 
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-        <span class="icon-prev"></span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-        <span class="icon-next"></span>
-      </a>
-    </div> 
-    <h3> The Goals of PiBot </h3>
       <p style="text-indent: 40px">
       In an attempt to understand how crucial the AI industry is to
       technological progression, we will
@@ -84,17 +37,22 @@
       potentially hazardous situations that
       would inhibit movement.
       </p>
-    <h3> About the Developers </h3>
+    <h3> About the Devs </h3>
       <p style="text-indent: 40px">
       Tim Sizemore & Andriy Rudyk are seniors at Western Carolina University and both
       are pursuing Bachelor Degrees in Computer Science. Tim enjoys competitive
-      sports, physics, and reading non-fiction. Andriy can write his own one
-      line description.
+      sports, physics, and reading non-fiction. Andriy enjoys strategic games, reading
+      and programming in python.
+      </p>
+
+      <h3>About the software used</h3>
+      <p style="text-indent: 40px">
+      The majority of this project is written in Python. The source code for the
+      entire application can be found on github @ <a href="https://github.com/arudyk/PiBot">PiBot</a>.
+      The website is running on a <a href="http://www.raspberrypi.org/">raspberryPi</a> computer
+      with <a href="http://flask.pocoo.org/">Flask</a> microframework. 
       </p>
   </div>
 </div>
 
-<script>
-  $('.carousel').carousel()
-</script>
 {% endblock %}

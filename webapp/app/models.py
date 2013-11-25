@@ -65,7 +65,7 @@ class Pibot(db.Model):
     """
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(35), index = True, unique = True)
-    location = db.Column(db.String(35), index = True, unique = True)
+    location = db.Column(db.String(36), index = True, unique = True)
     operational = db.Column(db.SmallInteger, default = OPERATIONAL)
     net_address = db.Column(db.String(16), index = True, unique = True)
 

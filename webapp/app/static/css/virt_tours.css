@@ -30,17 +30,6 @@
   list-style: none;
 }
 
-.my-carousel-indicators li {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 1px;
-  text-indent: -999px;
-  cursor: pointer;
-  border: 1px solid #ffffff;
-  border-radius: 10px;
-}
-
 .my-carousel-indicators .active {
   width: 12px;
   height: 12px;
@@ -56,10 +45,13 @@
 
 .centered-item {
     text-align: center;
-    img {
     margin: 0 auto;
 }
 
-.edit-btn {
+#edit-btn {
     max-width: 105px;
+}
+
+.error-page {
+  color: white;
 }

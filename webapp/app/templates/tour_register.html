@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container sitebody well shadow">
+    <h4>Register for a tour</h4>
+    {% include 'flash.html' %}
+    <form action="" method="post" name="edit">
+    {{form.hidden_tag()}}
+    <table class="table">
+        <tr>
+            <td>Start tour:</td>
+            <td>{{form.start(size = 24, class="form-control")}}</td>
+        </tr>
+        <tr>
+            <td>Finish tour:</td>
+            <td>{{form.finish(size = 35, class="form-control")}}</td>
+        </tr>
+        <tr>
+            <td>Pibot:</td>
+            <td>{{form.pibot(class="btn dropdown-toggle sr-only")}}</td>
+        </tr>
+    </table>
+    <input type="submit" class="btn btn-primary pull-right" value="Register Tour">
+</form>
+</div>
+{% endblock %}

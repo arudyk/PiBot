@@ -181,3 +181,13 @@ def tour_register():
     return render_template('tour_register.html',
                            form = form,
                            user = user)
+
+@app.route('/tours')
+@login_required
+def tours():
+    user = g.user
+    # Get all tours for this user.
+    my_tours = models.Tour.query.filter_by(user_id = user.id)
+    return render_template('tours.html',
+                            user = user,
+                            my_tours = my_tours)

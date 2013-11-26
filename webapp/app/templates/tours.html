@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container sitebody well shadow">
+    <h4>My Tours:</h4>
+    {% include 'flash.html' %}
+    <ul>
+    {% for tour in my_tours %}
+        <li>{{ tour.id }}</li>
+    {% endfor %}
+    </ul>
+</div>
+<script>
+
+</script>
+{% endblock %}

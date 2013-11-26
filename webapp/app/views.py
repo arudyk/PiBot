@@ -191,3 +191,10 @@ def tours():
     return render_template('tours.html',
                             user = user,
                             my_tours = my_tours)
+
+@app.route('/tour/<tour_id>')
+@login_required
+def tour():
+    user = g.user
+    return render_template('tour.html',
+                            user = user)

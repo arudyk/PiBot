@@ -3,11 +3,24 @@
 <div class="container sitebody well shadow">
     <h4>My Tours:</h4>
     {% include 'flash.html' %}
-    <ul>
-    {% for tour in my_tours %}
-        <li>{{ tour.id }}</li>
+    <hr>
+    When the start time is 5 minutes within the start of the tour you can enter
+    the tour view by clicking the id of the tour.
+    <hr>
+    <table class="table">
+        <tr>
+            <td>Tour ID</td>
+            <td>Start</td>
+            <td>PiBot ID</td>
+        </tr>
+        {% for tour in my_tours %}
+        <tr>
+            <td><a href="/tour/{{ tour.id }}">{{ tour.id }}</a></td>
+            <td>{{ tour.start }}</td>
+            <td>{{ tour.pibot_id }}</td>
+        </tr>
     {% endfor %}
-    </ul>
+</table>
 </div>
 <script>
 

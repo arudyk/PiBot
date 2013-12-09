@@ -1,8 +1,18 @@
 {% extends "base.html" %}
 {% block body %}
 <div class="container sitebody well shadow">
-    <h4>My Tour:</h4>
-    {% include 'flash.html' %}
+  {% include 'flash.html' %}
+  {% if tour %}
+  <div class="tour_view">
+    <h4>Tour Number: {{ tour.id }}</h4>
     <hr>
-    <h5>You are now inside a tour. Congratz!</h5>
+    <ul>
+      <li>Start Time: {{ tour.start }}</li>
+      <li>Finish Time: {{ tour.finish }}</li>
+      <li>Controlling bot#: {{ tour.pibot_id }}</li>
+    </ul>
+  </div>
+  {% else %}
+      <h4>You are not autherized to access this tour!</h4>
+  {% endif %}
 {% endblock %}

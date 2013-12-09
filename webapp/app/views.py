@@ -194,7 +194,17 @@ def tours():
 
 @app.route('/tour/<tour_id>')
 @login_required
-def tour():
+def tour(tour_id):
     user = g.user
+
+    tour = models.Tour.query.filter_by(id=tour_id, user_id=user.id).first()
+
+    #print "User: " + str(user.id) + " is viewing tour # " + str(tour_id)
+    
+    if tour == None:
+        flash('Tour ' + tour + ' not found.')
+        return redirect(url_for('index'))
+
     return render_template('tour.html',
-                            user = user)
+                            user = user,
+                            tour = tour)

@@ -46,7 +46,8 @@ class TourRegisterForm(Form):
     pibots = models.Pibot.query.all()
     for i, bot in enumerate(pibots):
         pibots[i] = (bot.name, bot.location)
-    start = DateTimeField('start', validators = [Required()], format='%Y-%m-%d %H:%M:%S')
-    finish = DateTimeField('finish', validators = [Required()], format='%Y-%m-%d %H:%M:%S')
+    start = DateTimeField('start', validators = [Required()], format='%Y/%m/%d %H:%M')
+    finish = DateTimeField('finish', validators = [Required()], format='%Y/%m/%d %H:%M')
+    #finish = DateTimeField('finish', validators = [Required()], format='%Y-%m-%d %H:%M:%S')
     pibot = SelectField('pibot', choices=pibots)
 

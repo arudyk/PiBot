@@ -1,12 +1,10 @@
 {% extends "base.html" %}
-
 {% block css %}
-<link rel="stylesheet" href="../static/css/jquery.simple-dtpicker.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="../static/css/jquery.simple-dtpicker.css" type="text/css" media="screen" charset="utf-8">
 {% endblock %}
 {% block js %}
-<script type="text/javascript" charset="utf-8" src="../static/js/jquery.simple-dtpicker.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../static/js/jquery.simple-dtpicker.js"></script>
 {% endblock %}
-
 {% block body %}
 <div class="container sitebody well shadow">
     <h4>Register for a tour</h4>
@@ -39,11 +37,7 @@
 $(function(){
   $('#startdate').appendDtpicker({
     "inline": true,
-    "dateFormat": "YY/MM/DD hh:mm"
-  });
-  $('#finishdate').appendDtpicker({
-    "inline": true,
-    "dateFormat": "YY/MM/DD hh:mm"
+    "dateFormat": "YY/MM/DD h:m"
   });
 });
 </script>

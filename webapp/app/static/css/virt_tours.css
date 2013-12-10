@@ -55,3 +55,10 @@
 .error-page {
   color: white;
 }
+
+#startdate {
+  max-width: 293px;
+}
+#finishdate {
+  max-width: 293px;
+}

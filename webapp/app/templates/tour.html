@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block js %}
+<script type="text/javascript" charset="utf-8" src="../static/js/button_controls.js"></script>
+{% endblock %}
 {% block body %}
 <div class="container sitebody well shadow">
   {% include 'flash.html' %}
@@ -11,6 +14,44 @@
       <li>Finish Time: {{ tour.finish }}</li>
       <li>Controlling bot#: {{ tour.pibot_id }}</li>
     </ul>
+    <div class="control_panel" style="width: 50%; margin: 0 auto; max-width:100px;">
+      <table border="0">
+        <tr>
+          <td></td>
+          <td>
+            <button class="btn" id="forward">
+              <i class="glyphicon glyphicon-chevron-up"></i>
+            </button>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <button class="btn">
+              <i class="glyphicon glyphicon-chevron-left"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn">
+              <i class="glyphicon glyphicon-remove-sign"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn">
+              <i class="glyphicon glyphicon-chevron-right"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button class="btn">
+              <i class="glyphicon glyphicon-chevron-down"></i>
+            </button>
+          </td>
+          <td></td>
+        </tr>
+    </div>
   </div>
   {% else %}
       <h4>You are not autherized to access this tour!</h4>

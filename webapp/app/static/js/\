@@ -1,0 +1,7 @@
+$(document).ready(function(){
+  $('#keyl').keydown(function(event){    
+      if(event.keyCode==87){
+         $('#forward').trigger('click');
+      }
+  });
+}

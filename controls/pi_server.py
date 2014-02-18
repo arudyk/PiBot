@@ -1,10 +1,10 @@
 #!/usr/bin/env python2
 
 """
-file: chat_server.py
+file: pi_server.py
 authors: Andriy Rudyk
          Tim Sizemore
-version: 10th December, 2013
+version: 17th December, 2013
 
 PiBot command server.
 """
@@ -21,13 +21,6 @@ HOST_NAME    = 'localhost'  # Default host name
 DEFAULT_PORT = 1337         # Default port to listen on
 DEFAULT_BUFF = 1024         # Default buffer size
 MAX_QUEUE    = 5            # Max. number of hosts queued for listen()
-
-REVERSE = 0
-FORWARD = 1
-LEFT = 2
-RIGHT = 3
-STOP = 4
-
 
 class WelcomeServerSocket(asyncore.dispatcher):
     """ Welcome socket class - handles incoming connections.
@@ -85,16 +78,20 @@ class PrivateServerSocket(asyncore.dispatcher_with_send):
         if dataRecvd:                           # If connection lives, continue
             print "[*] command -> " + dataRecvd.lower()
             cmd = dataRecvd.lower().strip()
-            if cmd == STOP:
-                pibot.stop()
-            elif cmd == FORWARD:
-                pibot.forward()
-            elif cmd == REVERSE:
-                pibot.reverse()
-            elif cmd == LEFT:
-                pibot.left()
-            elif cmd == RIGHT:
-                pibot.right()
+            # New HTPP
+            if 'GET' in cmd:
+                print 'retriving information'
+                if cmd.split(' ')[1] == 'forward':
+                    pibot.forward()
+                if cmd.split(' ')[1] == 'reverse':
+                    pibot.reverse()
+                if cmd.split(' ')[1] == 'left':
+                    pibot.left()
+                if cmd.split(' ')[1] == 'right':
+                    pibot.right()
+            if 'DO' in cmd:
+                print 'listening to commands'
+                self.send(pibot.get_sonar())
 
         else: 
             self.close()                      # Connection is dead, close

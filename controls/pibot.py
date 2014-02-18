@@ -1,4 +1,6 @@
 from pibot_controller import *
+from sonar import *
+
 """
 A class that represents the PiBot controls in their abstracted form.
 
@@ -12,6 +14,7 @@ class PiBot(object):
     def __init__(self):
         """The PiBot constructor."""
         self.status = None
+        self.distance = 0
         power_ctrl(POWER_ON)
 
     def forward(self):
@@ -54,3 +57,7 @@ class PiBot(object):
         """Stops the PiBot"""
         power_ctrl(POWER_OFF)
         self.status = "stop"
+
+    def get_distance(self):
+        """Return distance to object in cm."""
+        return read_sensor()

@@ -2,6 +2,9 @@
 
 import time
 import RPi.GPIO as GPIO
+from pibot import PiBot
+
+MIN_DIS = 20
 
 def read_sensor():
     """
@@ -62,3 +65,13 @@ def read_sensor():
     
     # no longer using the GPIO, so tell software we're done
     # GPIO.cleanup() # DANGEROUS MIGHT KILL MOTOR CONTROLLER
+
+if __name__ == '__main__':
+    motor_daemon = Pibot()
+    if sys.argv[1] == 'start':
+        while True:
+            dis = read_sensor()
+            if dis < MIN_DIS:
+                motor_daemon.stop()
+    else:
+        motor_daemon.stop()

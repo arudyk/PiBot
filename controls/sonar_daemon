@@ -1,0 +1,52 @@
+#!/bin/bash
+
+
+# description: Sonar daemon
+#
+
+# Get function from functions library
+. /etc/init.d/functions
+
+# Path to python sonar script
+SONAR_PATH="/var/opt/sonar.py"
+
+# Start the service sonar_daemon
+start() {
+        initlog -c "echo -n Starting sonar daemon: "
+        /etc/rc.d/init.d/sonar_daemon &
+        
+        # Create the lock file
+        touch /var/lock/subsys/sonar_daemon
+        success $"Sonar daemon startup"
+        python $SONAR_PATH start
+}
+
+# Restart the service sonar_daemon
+stop() {
+        initlog -c "echo -n Stopping sonar daemon: "
+        killproc sonar_daemon
+        # Delete the lock file
+        rm -f /var/lock/subsys/sonar_daemon
+        python $SONAR_PATH stop
+}
+
+# Main
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  status)
+        status FOO
+        ;;
+  restart|reload|condrestart)
+        stop
+        start
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart|reload|status}"
+        exit 1
+esac
+exit 0

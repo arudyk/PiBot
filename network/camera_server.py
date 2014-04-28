@@ -10,8 +10,8 @@ from argparse import ArgumentParser
 class CameraServer:
     def __init__(self, ip_address, port):
         self.server_socket = socket()
-        server_socket.bind((ip_address, port))
-        server_socket.listen(0)
+        self.server_socket.bind((ip_address, port))
+        self.server_socket.listen(0)
 
     def listen(self):
         connection = self.server_socket.accept()[0].makefile('rb')
